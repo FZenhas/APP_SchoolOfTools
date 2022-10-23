@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bem_vindo_school_of_tools">Welcome to the School of Tools</string>
+    <string name="login_instrucoes">Login to access the School of Tools APP</string>
+    <string name="entrar">Login</string>
+    <string name="user"></string>
+    <string name="pass"></string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="true">School of Tools</string>
+    <string name="user"></string>
+    <string name="pass"></string>
+    <string name="entrar">Entrar</string>
+    <string name="bem_vindo_school_of_tools">Bem-vindo à School of Tools</string>
+    <string name="login_instrucoes">Faça Login para aceder à APP da School of Tools</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
