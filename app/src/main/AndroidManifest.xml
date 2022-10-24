@@ -13,6 +13,24 @@
         android:theme="@style/Theme.SchoolOfTools"
         tools:targetApi="31">
         <activity
+            android:name=".StudentDetailsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EditStudentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.login.EditStudentActivity"
+            android:exported="false"
+            android:label="@string/title_activity_edit_student" />
+        <activity
             android:name=".AddStudentActivity"
             android:exported="false">
             <meta-data

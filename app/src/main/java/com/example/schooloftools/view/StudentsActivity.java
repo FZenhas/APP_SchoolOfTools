@@ -14,8 +14,10 @@ import android.widget.Toast;
 import com.example.schooloftools.AddClassActivity;
 import com.example.schooloftools.AddStudentActivity;
 import com.example.schooloftools.EditClassActivity;
+import com.example.schooloftools.EditStudentActivity;
 import com.example.schooloftools.R;
 import com.example.schooloftools.SelectListenerStudents;
+import com.example.schooloftools.StudentDetailsActivity;
 import com.example.schooloftools.adapter.StudentsListAdapter;
 
 import com.example.schooloftools.database.DBHelperStudents;
@@ -68,6 +70,11 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
     }
             @Override
             public void onItemClicked(Student student, String action) {
+                if (action == "visualizar") {
+                    Intent i = new Intent(StudentsActivity.this, StudentDetailsActivity.class);
+                    i.putExtra("id", student.getId());
+                    startActivity(i);
+                }
                 if (action == "remover") {
                     if (student.getId() > listStudents.size() - 1) {
                         posicao = listStudents.size();
@@ -80,6 +87,11 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
                     adapter.notifyDataSetChanged();
 
                     Toast.makeText(StudentsActivity.this, "Aluno eliminado", Toast.LENGTH_SHORT).show();
+                }
+                if (action == "editar") {
+                    Intent i = new Intent(StudentsActivity.this, EditStudentActivity.class);
+                    i.putExtra("id", student.getId());
+                    startActivity(i);
                 }
 
     }

@@ -48,17 +48,18 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
         Student student = listStudents.get(holder.getAdapterPosition());
         holder.bindData(student);
 
-       /* holder.bt_addStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onItemClicked(listStudents.get(holder.getAdapterPosition()), "adicionar");
-            }
-        });*/
 
         holder.bt_delete_student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 listener.onItemClicked(listStudents.get(holder.getAdapterPosition()), "remover");
+            }
+        });
+
+        holder.bt_edit_student.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClicked(listStudents.get(holder.getAdapterPosition()), "editar");
             }
         });
 
@@ -72,13 +73,14 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
     class StudentViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_students;
-        Button bt_delete_student, bt_addStudent;
+        Button bt_delete_student, bt_addStudent, bt_edit_student;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_students = itemView.findViewById(R.id.tv_students);
             bt_delete_student = itemView.findViewById(R.id.bt_delete_student);
             bt_addStudent = itemView.findViewById(R.id.bt_addStudent);
+            bt_edit_student = itemView.findViewById(R.id.bt_edit_student);
 
            /* itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
