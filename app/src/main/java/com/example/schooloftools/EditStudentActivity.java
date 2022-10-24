@@ -43,6 +43,7 @@ public class EditStudentActivity extends AppCompatActivity {
         i = getIntent();
         extras = i.getExtras();
 
+        int id = i.getExtras().getInt("id");
         student = db.SelectStudentbyID(extras.getInt("id"));
         et_edit_name.setText(student.getName());
         et_edit_address.setText(student.getAddress());

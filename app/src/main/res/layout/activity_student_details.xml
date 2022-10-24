@@ -35,11 +35,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_edit_longitude"/>
+        android:id="@+id/tv_view_longitude"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tv_view_classId"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_view_location"
+        android:text="Ver localização"/>
 
 </LinearLayout>

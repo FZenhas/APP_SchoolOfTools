@@ -11,14 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Login extends AppCompatActivity {
+import com.example.schooloftools.database.DBHelper;
+import com.example.schooloftools.database.DBHelperLogin;
+import com.example.schooloftools.model.User;
+import com.example.schooloftools.view.ClassesActivity;
 
+public class Login extends AppCompatActivity {
+    DBHelperLogin db = new DBHelperLogin(this);
     EditText et_email, et_password;
     Button bt_login;
 
-    String email="", password="";
+    String email = "", password = "";
     SharedPreferences sp;
     SharedPreferences.Editor editor;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +36,12 @@ public class Login extends AppCompatActivity {
         bt_login = findViewById(R.id.bt_login);
 
         sp = getSharedPreferences(getString(R.string.user), Context.MODE_PRIVATE);
-        email=sp.getString(getString(R.string.user), "");
+        email = sp.getString(getString(R.string.user), "");
         et_email.setText(email);
 
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = et_email.getText().toString();
-                String password = et_password.getText().toString();
 
                 email = et_email.getText().toString();
                 password = et_password.getText().toString();
@@ -46,16 +50,16 @@ public class Login extends AppCompatActivity {
                 editor.putString(getString(R.string.user), email);
                 editor.apply();
 
-                if((email.trim().equals("teacher@email.com") && password.equals("pass")) || (email.trim().equals("teacher2@email.com") && password.equals("pass2")) || (email.trim().equals("teacher3@email.com") && password.equals("pass3"))) { // colocar os 3 logins possiveis
+                user = db.LoginCredencials(email, password);
+                if (!user.getEmail().equals("")) {
                     Intent i = new Intent(Login.this, MainActivity.class);
                     Toast.makeText(Login.this, "Login válido. Obrigada!", Toast.LENGTH_SHORT).show();
                     startActivity(i);
-                }else{
+                } else {
                     Toast.makeText(Login.this, "Login inválido. Tente novamente.", Toast.LENGTH_SHORT).show();
+                    et_email.setText("");
+                    et_password.setText("");
                 }
-
-                et_email.setText("");
-                et_password.setText("");
             }
         });
     }

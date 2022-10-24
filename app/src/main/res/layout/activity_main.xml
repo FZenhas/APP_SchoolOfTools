@@ -4,17 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/bt_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:text="Ir para o menu Alunos" />
 
     <Button
         android:id="@+id/bt_class"
@@ -22,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
+        android:backgroundTint="@color/teal_200"
         android:text="Ir para o menu Turmas" />
 
     <Button
@@ -30,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
+        android:backgroundTint="@color/teal_700"
         android:text="Sobre" />
 
 

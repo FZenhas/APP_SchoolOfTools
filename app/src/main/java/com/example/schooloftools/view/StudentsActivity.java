@@ -23,6 +23,8 @@ import com.example.schooloftools.adapter.StudentsListAdapter;
 import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Student;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudentsActivity extends AppCompatActivity implements SelectListenerStudents {
@@ -60,6 +62,7 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
 
         //VISUALIZAR ALUNOS POR TURMA
         listStudents = db.SelectAllList(extras.getInt("id"));
+
 
         adapter = new StudentsListAdapter(this, listStudents, this);
         mViewHolder.rv_students.setAdapter(adapter);

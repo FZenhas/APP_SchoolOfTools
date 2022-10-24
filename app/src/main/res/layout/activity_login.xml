@@ -46,7 +46,8 @@
             android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:minWidth="200sp" />
+            android:minWidth="200sp"
+            android:text="teacher@email.com" />
     </LinearLayout>
 
     <LinearLayout
@@ -69,7 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:minWidth="200sp" />
+            android:minWidth="200sp"
+            android:text="pass" />
     </LinearLayout>
 
     <Button

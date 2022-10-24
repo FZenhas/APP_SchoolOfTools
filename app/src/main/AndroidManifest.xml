@@ -26,10 +26,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".ui.login.EditStudentActivity"
-            android:exported="false"
-            android:label="@string/title_activity_edit_student" />
+
         <activity
             android:name=".AddStudentActivity"
             android:exported="false">
@@ -64,7 +61,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyD-Ftwp8i0yn5qgQ6nmgOqUv6nrcmsko0U" />
 
         <activity
             android:name=".MapsActivity"

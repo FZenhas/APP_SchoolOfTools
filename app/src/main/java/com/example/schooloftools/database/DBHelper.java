@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE classes (id INTEGER PRIMARY KEY AUTOINCREMENT, year INTEGER, designation TEXT);",
             "INSERT INTO classes (year, designation) VALUES ('10', 'turma A'), ('10','turma B'), ('11','turma A'),('11','turma B');",
             "CREATE TABLE students (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, address TEXT, phone INTEGER, email TEXT, latitude real, longitude real, class_id integer, FOREIGN KEY('id') REFERENCES classes('id'));",
-            "INSERT INTO students (name, address, phone, email, latitude, longitude, class_id) VALUES ('Rodrigo Freitas','Rua do Prado, Porto','919999999','rf@aluno.pt','45','30','2'), ('José Sá','Rua de Baixo, Rio Tinto','934444444','js@aluno.pt','44','36','1'),('António Lopes','Rua da Serra, Porto','910000000','al@aluno.pt','111','110','3'),('Andreia Tavares','Rua de Baixo, Ermesinde','968989899','at@aluno.pt','14','51','4');"
+            "INSERT INTO students (name, address, phone, email, latitude, longitude, class_id) VALUES ('Rodrigo Freitas','Rua do Prado, Porto','919999999','rf@aluno.pt','41.154672','-8.623624','2'), ('José Sá','Rua de Baixo, Rio Tinto','934444444','js@aluno.pt','41.152863','-8.672752','1'),('António Lopes','Rua da Serra, Porto','910000000','al@aluno.pt','41.163332','-8.642176','3'),('Andreia Tavares','Rua de Baixo, Ermesinde','968989899','at@aluno.pt','41.148339','-8.590472','4');"
 
     };
 
@@ -45,11 +45,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
 
-    }
-
-    public Cursor SelectAll() {
-        SQLiteDatabase db = getReadableDatabase();
-        return db.rawQuery("SELECT * FROM classes", null);
     }
 
     public List<Turma> SelectAllList() {

@@ -48,6 +48,13 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
         Student student = listStudents.get(holder.getAdapterPosition());
         holder.bindData(student);
 
+        holder.bt_details_student. setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClicked(listStudents.get(holder.getAdapterPosition()), "visualizar");
+
+            }
+        });
 
         holder.bt_delete_student.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,14 +80,15 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
     class StudentViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_students;
-        Button bt_delete_student, bt_addStudent, bt_edit_student;
+        Button bt_delete_student, bt_addStudent, bt_edit_student, bt_details_student;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_students = itemView.findViewById(R.id.tv_students);
-            bt_delete_student = itemView.findViewById(R.id.bt_delete_student);
+            bt_details_student = itemView.findViewById(R.id.bt_details_student);
             bt_addStudent = itemView.findViewById(R.id.bt_addStudent);
             bt_edit_student = itemView.findViewById(R.id.bt_edit_student);
+            bt_delete_student = itemView.findViewById(R.id.bt_delete_student);
 
            /* itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
