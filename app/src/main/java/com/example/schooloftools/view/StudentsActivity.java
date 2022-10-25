@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.schooloftools.AddClassActivity;
@@ -49,6 +50,8 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
         mViewHolder.rv_students = findViewById(R.id.rv_students);
         mViewHolder.bt_delete_student = findViewById(R.id.bt_delete_student);
         mViewHolder.bt_addStudent = findViewById(R.id.bt_addStudent);
+        mViewHolder.ibt_ascSortStudents = findViewById(R.id.ibt_ascSortStudents);
+        mViewHolder.ibt_descSortStudents = findViewById(R.id.ibt_descSortStudents);
 
         // Adicionar turma
         mViewHolder.bt_addStudent.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +65,39 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
 
         //VISUALIZAR ALUNOS POR TURMA
         listStudents = db.SelectAllList(extras.getInt("id"));
+
+        Collections.sort(listStudents, new Comparator<Student>() {
+            @Override
+            public int compare(Student student, Student student2) {
+                return student.getName().compareTo(student2.getName());
+            }
+        });
+
+        mViewHolder.ibt_ascSortStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(listStudents, new Comparator<Student>() {
+                    @Override
+                    public int compare(Student student, Student student2) {
+                        return student.getName().compareTo(student2.getName());
+                    }
+                });
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        mViewHolder.ibt_descSortStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Collections.sort(listStudents, new Comparator<Student>() {
+                    @Override
+                    public int compare(Student student, Student student2) {
+                        return student2.getName().compareTo(student.getName());
+                    }
+                });
+                adapter.notifyDataSetChanged();
+            }
+        });
 
 
         adapter = new StudentsListAdapter(this, listStudents, this);
@@ -79,16 +115,16 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
                     startActivity(i);
                 }
                 if (action == "remover") {
-                    if (student.getId() > listStudents.size() - 1) {
-                        posicao = listStudents.size();
-                    } else {
-                        posicao = student.getId();
+                    for (int i = 0; i < listStudents.size(); i++) {
+                        if (listStudents.get(i).getId() == student.getId()) {
+                            posicao = i;
+                            break;
+                        }
                     }
                     db.Delete(student.getId());
 
-                    listStudents.remove(posicao - 1);
+                    listStudents.remove(posicao);
                     adapter.notifyDataSetChanged();
-
                     Toast.makeText(StudentsActivity.this, "Aluno eliminado", Toast.LENGTH_SHORT).show();
                 }
                 if (action == "editar") {
@@ -104,6 +140,6 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
             RecyclerView rv_students;
             Intent i;
             Button bt_delete_student, bt_addStudent;
-
+            ImageButton ibt_ascSortStudents, ibt_descSortStudents;
         }
     }

@@ -100,7 +100,7 @@ public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.Tu
         }
 
         public void bindData(Turma turma) {
-            tv_classes.setText("Turma: " + turma.getYear() + " - " + turma.getDesignation());
+            tv_classes.setText("Turma: " + turma.getYear() + "º - " + turma.getDesignation());
         }
     }
 

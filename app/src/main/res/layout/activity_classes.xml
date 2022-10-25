@@ -8,16 +8,37 @@
     tools:context=".view.ClassesActivity">
 
     <Button
+        android:id="@+id/bt_addClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar turma"
-        android:backgroundTint="#FF03DAC5"
         android:layout_marginStart="5dp"
-        android:textSize="10sp"
-        android:id="@+id/bt_addClass"/>
+        android:backgroundTint="#FF03DAC5"
+        android:text="Adicionar turma"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sortasc"
+            android:backgroundTint="@color/white"
+            android:id="@+id/ibt_asc_sort"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sortdesc"
+            android:backgroundTint="@color/white"
+            android:id="@+id/ibt_desc_sort"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_classes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"  />
+        android:layout_height="match_parent" />
 </LinearLayout>

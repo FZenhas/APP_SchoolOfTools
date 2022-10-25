@@ -45,6 +45,7 @@ public class AddClassActivity extends AppCompatActivity {
                     Toast.makeText(AddClassActivity.this, "Turma inserida ", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AddClassActivity.this, ClassesActivity.class);
                     startActivity(i);
+                    finish();
                 }
             }
         });

@@ -15,6 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.schooloftools.databinding.ActivityMapsBinding;
 
+import java.util.List;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -22,6 +24,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     DBHelperStudents db = new DBHelperStudents(this);
     Student student;
     Bundle extras;
+    Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        student = db.SelectStudentbyID(extras.getInt("id"));
     }
 
     /**
@@ -50,12 +53,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        i = getIntent();
+        extras = i.getExtras();
+
+       student = db.SelectStudentbyID(extras.getInt("id"));
 
 
-        Intent i = getIntent();
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(i.getExtras().getDouble("latitude"), i.getExtras().getDouble("longitude"));
-        mMap.addMarker(new MarkerOptions().position(sydney).title(i.getExtras().getString("nome")));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng mark = new LatLng(student.getLatitude(), student.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(mark).title(student.getAddress()));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mark));
     }
 }

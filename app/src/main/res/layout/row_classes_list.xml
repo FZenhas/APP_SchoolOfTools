@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_containerTurmas"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:background="#FF018786"
-    android:orientation="vertical"
-    android:id="@+id/main_containerTurmas">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_classes"
         android:layout_width="match_parent"
-        android:layout_weight="4"
         android:layout_height="wrap_content"
+        android:layout_weight="4"
         android:padding="20dp"
         android:text="Turmas"
         android:textColor="#fff"
@@ -20,33 +20,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="end">
-    <Button
-        android:id="@+id/bt_edit_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:layout_marginEnd="5dp"
-        android:text="Editar"
-        android:textSize="10sp"/>
+        android:gravity="end"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/bt_delete_class"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:layout_marginEnd="5dp"
-        android:text="Eliminar"
-        android:textSize="10sp"/>
+        <Button
+            android:id="@+id/bt_class_students"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/black"
+            android:text="Ver alunos"
+            android:textSize="10sp" />
 
-    <Button
-        android:id="@+id/bt_class_students"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:layout_marginEnd="5dp"
-        android:text="Ver alunos"
-        android:textSize="10sp"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/bt_edit_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/black"
+            android:text="Editar"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/bt_delete_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/black"
+            android:text="Eliminar"
+            android:textSize="10sp" />
+
+
+    </LinearLayout>
 </LinearLayout>

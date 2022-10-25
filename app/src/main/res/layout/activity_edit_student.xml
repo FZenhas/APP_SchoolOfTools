@@ -36,13 +36,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Latitude"
-        android:inputType="number"
+        android:inputType="numberSigned"
         android:id="@+id/et_edit_latitude"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Longitude"
-        android:inputType="number"
+        android:inputType="numberSigned"
         android:id="@+id/et_edit_longitude"/>
     <EditText
         android:layout_width="match_parent"

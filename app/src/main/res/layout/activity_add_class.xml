@@ -15,7 +15,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Designação da turma (ex: turma C"
+        android:hint="Designação da turma (ex: C"
         android:id="@+id/et_classDesignation"/>
     <Button
         android:layout_width="wrap_content"

@@ -13,6 +13,7 @@ import com.example.schooloftools.view.StudentsActivity;
 public class MainActivity extends AppCompatActivity {
 
     Button bt_class, bt_about;
+    Bundle extras;
 
 
     @Override
