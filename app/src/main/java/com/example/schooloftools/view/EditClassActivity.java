@@ -1,24 +1,19 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schooloftools.R;
 import com.example.schooloftools.adapter.TurmasListAdapter;
 import com.example.schooloftools.database.DBHelper;
-import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Turma;
-import com.example.schooloftools.view.ClassesActivity;
-import com.example.schooloftools.view.StudentsActivity;
 
 public class EditClassActivity extends AppCompatActivity {
 

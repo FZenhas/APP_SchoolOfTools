@@ -1,4 +1,4 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.schooloftools.database.DBHelper;
+import com.example.schooloftools.R;
 import com.example.schooloftools.database.DBHelperLogin;
 import com.example.schooloftools.model.User;
-import com.example.schooloftools.view.ClassesActivity;
 
 public class Login extends AppCompatActivity {
     DBHelperLogin db = new DBHelperLogin(this);

@@ -1,22 +1,18 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schooloftools.R;
 import com.example.schooloftools.adapter.StudentsListAdapter;
 import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Student;
@@ -83,17 +79,18 @@ public class StudentDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse("mailto:" + student.getEmail())); // You can use "mailto:" if you don't know the address beforehand.
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Início do ano escolar");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Bem-vindo, caro aluno!");
+                Intent selectorIntent = new Intent(Intent.ACTION_SENDTO);
+                selectorIntent.setData(Uri.parse("mailto:"));
 
-                try {
-                    startActivity(Intent.createChooser(emailIntent, "enviado a partir de Minha Aplicação..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(StudentDetailsActivity.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
-                }
+                final Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{student.getEmail()});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Início do ano escolar");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Bem-vindo(a), caro(a) " + student.getName() + "!");
+                emailIntent.setSelector(selectorIntent);
+
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
+
         });
 
     }

@@ -1,4 +1,4 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.schooloftools.R;
 import com.example.schooloftools.adapter.StudentsListAdapter;
 import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Student;
-import com.example.schooloftools.view.StudentsActivity;
 
 public class EditStudentActivity extends AppCompatActivity {
 

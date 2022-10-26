@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    android:background="@color/green_light"
+    tools:context=".view.MainActivity">
 
     <Button
         android:id="@+id/bt_class"
@@ -28,6 +29,15 @@
         android:layout_gravity="center"
         android:backgroundTint="@color/teal_700"
         android:text="Sobre" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="date"
+        android:gravity="center"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/black"
+        android:id="@+id/tv_dateTime"/>
 
 
 </LinearLayout>

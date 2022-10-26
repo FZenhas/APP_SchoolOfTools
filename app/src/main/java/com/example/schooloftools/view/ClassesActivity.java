@@ -13,16 +13,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.schooloftools.AddClassActivity;
-import com.example.schooloftools.EditClassActivity;
-
 import com.example.schooloftools.R;
 import com.example.schooloftools.SelectListenerTurmas;
 import com.example.schooloftools.adapter.TurmasListAdapter;
 import com.example.schooloftools.database.DBHelper;
 import com.example.schooloftools.model.Turma;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;

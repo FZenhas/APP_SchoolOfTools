@@ -1,4 +1,4 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,15 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schooloftools.R;
 import com.example.schooloftools.adapter.StudentsListAdapter;
 import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Student;
-import com.example.schooloftools.model.Turma;
-import com.example.schooloftools.view.ClassesActivity;
-import com.example.schooloftools.view.StudentsActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,13 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.schooloftools.AddClassActivity;
-import com.example.schooloftools.AddStudentActivity;
-import com.example.schooloftools.EditClassActivity;
-import com.example.schooloftools.EditStudentActivity;
 import com.example.schooloftools.R;
 import com.example.schooloftools.SelectListenerStudents;
-import com.example.schooloftools.StudentDetailsActivity;
 import com.example.schooloftools.adapter.StudentsListAdapter;
 
 import com.example.schooloftools.database.DBHelperStudents;

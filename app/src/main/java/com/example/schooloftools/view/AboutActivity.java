@@ -1,8 +1,10 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.schooloftools.R;
 
 public class AboutActivity extends AppCompatActivity {
 

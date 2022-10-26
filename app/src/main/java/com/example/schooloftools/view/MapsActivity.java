@@ -1,10 +1,11 @@
-package com.example.schooloftools;
+package com.example.schooloftools.view;
 
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.schooloftools.R;
 import com.example.schooloftools.database.DBHelperStudents;
 import com.example.schooloftools.model.Student;
 import com.google.android.gms.maps.CameraUpdateFactory;

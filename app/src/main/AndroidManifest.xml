@@ -13,42 +13,35 @@
         android:theme="@style/Theme.SchoolOfTools"
         tools:targetApi="31">
         <activity
-            android:name=".SendEmailActivity"
+            android:name=".view.StudentDetailsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".StudentDetailsActivity"
+            android:name=".view.EditStudentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditStudentActivity"
+            android:name=".view.AddStudentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddStudentActivity"
+            android:name=".view.EditClassActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditClassActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".AddClassActivity"
+            android:name=".view.AddClassActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -70,11 +63,11 @@
             android:value="AIzaSyD-Ftwp8i0yn5qgQ6nmgOqUv6nrcmsko0U" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".view.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".view.AboutActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -95,7 +88,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name=".view.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,14 +101,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".view.Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
