@@ -30,7 +30,7 @@
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
             android:text="Ver alunos"
-            android:textSize="10sp" />
+            android:textSize="9sp" />
 
         <Button
             android:id="@+id/bt_edit_class"
@@ -39,7 +39,7 @@
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
             android:text="Editar"
-            android:textSize="10sp" />
+            android:textSize="9sp" />
 
         <Button
             android:id="@+id/bt_delete_class"
@@ -48,7 +48,7 @@
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
             android:text="Eliminar"
-            android:textSize="10sp" />
+            android:textSize="9sp" />
 
 
     </LinearLayout>

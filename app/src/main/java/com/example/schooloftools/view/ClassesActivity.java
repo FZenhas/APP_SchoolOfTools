@@ -1,10 +1,12 @@
 package com.example.schooloftools.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +46,8 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
         mViewHolder.tv_classes = findViewById(R.id.tv_classes);
         mViewHolder.ibt_asc_sort = findViewById(R.id.ibt_asc_sort);
         mViewHolder.ibt_desc_sort = findViewById(R.id.ibt_desc_sort);
+
+        mViewHolder.builder = new AlertDialog.Builder(this);
 
         mViewHolder.bt_addClass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +96,6 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
             }
         });
 
-
         adapter = new TurmasListAdapter(this, listTurmas, this);
         mViewHolder.rv_classes.setAdapter(adapter);
 
@@ -109,17 +112,31 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
             startActivity(i);
         }
         if (action == "remover") {
-            for (int i = 0; i < listTurmas.size(); i++) {
-                if (listTurmas.get(i).getId() == turma.getId()) {
-                    posicao = i;
-                    break;
-                }
-            }
-            db.Delete(turma.getId());
 
-            listTurmas.remove(posicao);
-            adapter.notifyDataSetChanged();
-            Toast.makeText(ClassesActivity.this, "Turma eliminada", Toast.LENGTH_SHORT).show();
+            mViewHolder.builder.setTitle("Eliminar turma").setMessage("Tem a certeza que quer elimina esta turma?").setCancelable(true).setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            for (i = 0; i < listTurmas.size(); i++) {
+                                if (listTurmas.get(i).getId() == turma.getId()) {
+                                    posicao = i;
+                                    break;
+                                }
+                            }
+                            db.Delete(turma.getId());
+
+                            listTurmas.remove(posicao);
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(ClassesActivity.this, "Turma eliminada", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    })
+                    .show();
         }
         if (action == "editar") {
             Intent i = new Intent(ClassesActivity.this, EditClassActivity.class);
@@ -135,5 +152,6 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
         Intent i;
         TextView tv_classes;
         ImageButton ibt_asc_sort, ibt_desc_sort;
+        AlertDialog.Builder builder;
     }
 }

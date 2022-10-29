@@ -1,11 +1,14 @@
 package com.example.schooloftools.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +50,7 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
         mViewHolder.bt_addStudent = findViewById(R.id.bt_addStudent);
         mViewHolder.ibt_ascSortStudents = findViewById(R.id.ibt_ascSortStudents);
         mViewHolder.ibt_descSortStudents = findViewById(R.id.ibt_descSortStudents);
+        mViewHolder.builder = new AlertDialog.Builder(this);
 
         // Adicionar turma
         mViewHolder.bt_addStudent.setOnClickListener(new View.OnClickListener() {
@@ -102,39 +106,55 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
         mViewHolder.rv_students.setLayoutManager(linearLayoutManager);
 
     }
-            @Override
-            public void onItemClicked(Student student, String action) {
-                if (action == "visualizar") {
-                    Intent i = new Intent(StudentsActivity.this, StudentDetailsActivity.class);
-                    i.putExtra("id", student.getId());
-                    startActivity(i);
-                }
-                if (action == "remover") {
-                    for (int i = 0; i < listStudents.size(); i++) {
-                        if (listStudents.get(i).getId() == student.getId()) {
-                            posicao = i;
-                            break;
-                        }
-                    }
-                    db.Delete(student.getId());
 
-                    listStudents.remove(posicao);
-                    adapter.notifyDataSetChanged();
-                    Toast.makeText(StudentsActivity.this, "Aluno eliminado", Toast.LENGTH_SHORT).show();
-                }
-                if (action == "editar") {
-                    Intent i = new Intent(StudentsActivity.this, EditStudentActivity.class);
-                    i.putExtra("id", student.getId());
-                    startActivity(i);
-                }
-
-    }
-
-        private static class ViewHolder {
-
-            RecyclerView rv_students;
-            Intent i;
-            Button bt_delete_student, bt_addStudent;
-            ImageButton ibt_ascSortStudents, ibt_descSortStudents;
+    @Override
+    public void onItemClicked(Student student, String action) {
+        if (action == "visualizar") {
+            Intent i = new Intent(StudentsActivity.this, StudentDetailsActivity.class);
+            i.putExtra("id", student.getId());
+            startActivity(i);
         }
+        if (action == "remover") {
+
+            mViewHolder.builder.setTitle("Elimiar aluno").setMessage("Tem a certeza que quer eliminar este aluno?").setCancelable(true).setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            for (i = 0; i < listStudents.size(); i++) {
+                                if (listStudents.get(i).getId() == student.getId()) {
+                                    posicao = i;
+                                    break;
+                                }
+                            }
+                            db.Delete(student.getId());
+
+                            listStudents.remove(posicao);
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(StudentsActivity.this, "Aluno eliminado", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    })
+                    .show();
+        }
+
+        if (action == "editar") {
+            Intent i = new Intent(StudentsActivity.this, EditStudentActivity.class);
+            i.putExtra("id", student.getId());
+            startActivity(i);
+        }
+
     }
+
+    private static class ViewHolder {
+
+        RecyclerView rv_students;
+        Intent i;
+        Button bt_delete_student, bt_addStudent;
+        ImageButton ibt_ascSortStudents, ibt_descSortStudents;
+        AlertDialog.Builder builder;
+    }
+}

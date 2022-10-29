@@ -1,6 +1,7 @@
 package com.example.schooloftools.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,6 +60,7 @@ public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.Tu
             @Override
             public void onClick(View view) {
                 listener.onItemClicked(listTurmas.get(holder.getAdapterPosition()), "remover");
+
             }
         });
         holder.bt_edit_class.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +88,6 @@ public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.Tu
             bt_class_students = itemView.findViewById(R.id.bt_class_students);
             bt_delete_class = itemView.findViewById(R.id.bt_delete_class);
             bt_edit_class = itemView.findViewById(R.id.bt_edit_class);
-
 
             /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

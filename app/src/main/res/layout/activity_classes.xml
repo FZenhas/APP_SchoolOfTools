@@ -13,27 +13,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:backgroundTint="#FF03DAC5"
+        android:drawableEnd="@drawable/ic_baseline_people_24"
         android:text="Adicionar turma"
+        android:layout_margin="15dp"
         android:textSize="10sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/green_light"
         android:orientation="horizontal"
+        android:layout_margin="10dp"
         android:gravity="end">
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/sortasc"
-            android:backgroundTint="@color/white"
+            android:src="@drawable/arrow_drop_up"
+            android:backgroundTint="@color/green_light"
             android:id="@+id/ibt_asc_sort"/>
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/sortdesc"
-            android:backgroundTint="@color/white"
+            android:src="@drawable/arrow_drop_down"
+            android:backgroundTint="@color/green_light"
             android:id="@+id/ibt_desc_sort"/>
     </LinearLayout>
 
