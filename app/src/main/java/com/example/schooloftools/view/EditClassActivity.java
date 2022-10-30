@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import com.example.schooloftools.R;
 import com.example.schooloftools.adapter.TurmasListAdapter;
 import com.example.schooloftools.database.DBHelper;
 import com.example.schooloftools.model.Turma;
+
+import java.util.Locale;
 
 public class EditClassActivity extends AppCompatActivity {
 
@@ -45,16 +48,22 @@ public class EditClassActivity extends AppCompatActivity {
         bt_update_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.Update(turma.getId(), Integer.parseInt(et_edit_year.getText().toString()), et_edit_designation.getText().toString());
 
-               // adapter.notifyDataSetChanged();
+                if (TextUtils.isEmpty(et_edit_designation.getText())) {
+                    Toast.makeText(EditClassActivity.this, "Dados em falta", Toast.LENGTH_SHORT).show();
+                    et_edit_designation.setError("Introduza a designação.");
 
-                Toast.makeText(EditClassActivity.this, "Turma atualizada", Toast.LENGTH_SHORT).show();
-                i = new Intent(EditClassActivity.this, ClassesActivity.class);
-                startActivity(i);
+                } else if (TextUtils.isEmpty(et_edit_year.getText())) {
+                    Toast.makeText(EditClassActivity.this, "Dados em falta", Toast.LENGTH_SHORT).show();
+                    et_edit_year.setError("Introduza o ano.");
+                } else {
+                    db.Update(turma.getId(), Integer.parseInt(et_edit_year.getText().toString()), et_edit_designation.getText().toString().toUpperCase(Locale.ROOT));
+                    Toast.makeText(EditClassActivity.this, "Turma atualizada", Toast.LENGTH_SHORT).show();
+                    i = new Intent(EditClassActivity.this, ClassesActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         });
     }
-
-
 }

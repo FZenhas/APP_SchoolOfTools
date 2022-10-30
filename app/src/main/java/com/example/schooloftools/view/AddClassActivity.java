@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.example.schooloftools.model.Turma;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AddClassActivity extends AppCompatActivity {
 
@@ -39,8 +41,17 @@ public class AddClassActivity extends AppCompatActivity {
         mViewHolder.bt_addNewClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long res = db.Insert(Integer.parseInt(mViewHolder.et_classYear.getText().toString()), mViewHolder.et_classDesignation.getText().toString());
-                if (res > 0) {
+
+               if (TextUtils.isEmpty(mViewHolder.et_classDesignation.getText())){
+                    Toast.makeText(AddClassActivity.this, "Dados em falta", Toast.LENGTH_SHORT).show();
+                    mViewHolder.et_classDesignation.setError( "Introduza a designação." );
+
+                }else if (TextUtils.isEmpty(mViewHolder.et_classYear.getText())){
+                    Toast.makeText(AddClassActivity.this, "Dados em falta", Toast.LENGTH_SHORT).show();
+                    mViewHolder.et_classYear.setError( "Introduza o ano." );
+                }
+               else {
+                   long res = db.Insert(Integer.parseInt(mViewHolder.et_classYear.getText().toString()), mViewHolder.et_classDesignation.getText().toString().toUpperCase(Locale.ROOT));
                     listTurmas.add(new Turma(Integer.parseInt(String.valueOf(res)), Integer.parseInt(mViewHolder.et_classYear.getText().toString()), mViewHolder.et_classDesignation.getText().toString()));
                     Toast.makeText(AddClassActivity.this, "Turma inserida ", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AddClassActivity.this, ClassesActivity.class);

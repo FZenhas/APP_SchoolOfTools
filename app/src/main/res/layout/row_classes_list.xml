@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
+            android:drawableEnd="@drawable/see_more"
             android:text="Ver alunos"
             android:textSize="9sp" />
 
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
+            android:drawableEnd="@drawable/edit"
             android:text="Editar"
             android:textSize="9sp" />
 
@@ -47,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/black"
+            android:drawableEnd="@drawable/ic_baseline_delete_outline_24"
             android:text="Eliminar"
             android:textSize="9sp" />
 

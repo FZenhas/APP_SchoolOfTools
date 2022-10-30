@@ -22,7 +22,6 @@ import java.util.List;
 public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.TurmaViewHolder> {
 
     private final Context context;
-    //private OnItemClickListener listener;
     private int contadorOnCreate = 0, contadorOnBind = 0;
     private List<Turma> listTurmas;
     private SelectListenerTurmas listener;
@@ -71,7 +70,6 @@ public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.Tu
         });
     }
 
-
     @Override
     public int getItemCount() {
         return listTurmas.size();
@@ -88,16 +86,6 @@ public class TurmasListAdapter extends RecyclerView.Adapter<TurmasListAdapter.Tu
             bt_class_students = itemView.findViewById(R.id.bt_class_students);
             bt_delete_class = itemView.findViewById(R.id.bt_delete_class);
             bt_edit_class = itemView.findViewById(R.id.bt_edit_class);
-
-            /*itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    if (pos != RecyclerView.NO_POSITION && listener != null) {
-                        listener.onItemClick(pos);
-                    }
-                }
-            }); */
 
         }
 

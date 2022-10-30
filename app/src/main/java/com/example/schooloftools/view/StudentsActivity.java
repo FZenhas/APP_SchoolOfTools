@@ -57,13 +57,13 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(StudentsActivity.this, AddStudentActivity.class);
-                i.putExtra("id", extras.getInt("id"));
+                i.putExtra("turma_id", extras.getInt("turma_id"));
                 startActivity(i);
             }
         });
 
         //VISUALIZAR ALUNOS POR TURMA
-        listStudents = db.SelectAllList(extras.getInt("id"));
+        listStudents = db.SelectAllList(extras.getInt("turma_id"));
 
         Collections.sort(listStudents, new Comparator<Student>() {
             @Override
@@ -144,6 +144,7 @@ public class StudentsActivity extends AppCompatActivity implements SelectListene
         if (action == "editar") {
             Intent i = new Intent(StudentsActivity.this, EditStudentActivity.class);
             i.putExtra("id", student.getId());
+            i.putExtra("turma_id", student.getClass_id());
             startActivity(i);
         }
 

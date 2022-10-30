@@ -15,6 +15,7 @@
         android:gravity="center"
         android:background="@color/green_light"
         android:text="Adicionar Aluno"
+        android:textAllCaps="true"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -28,10 +29,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Nome: " />
 
         <EditText
             android:id="@+id/et_name"
+            android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -44,10 +47,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Morada: "/>
 
         <EditText
             android:id="@+id/et_address"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -60,13 +65,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Telefone:" />
 
         <EditText
             android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone" />
+            android:inputType="phone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -77,6 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Email: " />
 
         <EditText
@@ -95,13 +102,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Latitude: " />
 
         <EditText
             android:id="@+id/et_latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned|numberDecimal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -112,13 +120,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Longitude: " />
 
         <EditText
             android:id="@+id/et_longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned" />
+            android:inputType="numberSigned|numberDecimal"/>
     </LinearLayout>
 
     <Button

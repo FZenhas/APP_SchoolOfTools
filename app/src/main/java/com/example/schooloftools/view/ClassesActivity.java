@@ -68,21 +68,21 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
             }
         });
 
-       mViewHolder.ibt_asc_sort.setOnClickListener(new View.OnClickListener() {
+        mViewHolder.ibt_asc_sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                    Collections.sort(listTurmas, new Comparator<Turma>() {
-                        @Override
-                        public int compare(Turma turma, Turma t1) {
-                            return Integer.valueOf(turma.getYear()).compareTo(t1.getYear());
-                        }
-                    });
+                Collections.sort(listTurmas, new Comparator<Turma>() {
+                    @Override
+                    public int compare(Turma turma, Turma t1) {
+                        return Integer.valueOf(turma.getYear()).compareTo(t1.getYear());
+                    }
+                });
                 adapter.notifyDataSetChanged();
             }
         });
 
-      mViewHolder.ibt_desc_sort.setOnClickListener(new View.OnClickListener() {
+        mViewHolder.ibt_desc_sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Collections.sort(listTurmas, new Comparator<Turma>() {
@@ -108,12 +108,12 @@ public class ClassesActivity extends AppCompatActivity implements SelectListener
     public void onItemClicked(Turma turma, String action) {
         if (action == "visualizar") {
             Intent i = new Intent(ClassesActivity.this, StudentsActivity.class);
-            i.putExtra("id", turma.getId());
+            i.putExtra("turma_id", turma.getId());
             startActivity(i);
         }
         if (action == "remover") {
 
-            mViewHolder.builder.setTitle("Eliminar turma").setMessage("Tem a certeza que quer elimina esta turma?").setCancelable(true).setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            mViewHolder.builder.setTitle("Eliminar turma").setMessage("Tem a certeza que quer eliminar esta turma?").setCancelable(true).setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 

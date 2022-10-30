@@ -20,7 +20,6 @@ import java.util.List;
 public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapter.StudentViewHolder> {
 
     private final Context context;
-   // private OnItemClickListener listener;
     private int contadorOnCreate = 0, contadorOnBind = 0;
     private List<Student> listStudents;
     private SelectListenerStudents listener;
@@ -52,7 +51,6 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
             @Override
             public void onClick(View view) {
                 listener.onItemClicked(listStudents.get(holder.getAdapterPosition()), "visualizar");
-
             }
         });
 
@@ -90,15 +88,6 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
             bt_edit_student = itemView.findViewById(R.id.bt_edit_student);
             bt_delete_student = itemView.findViewById(R.id.bt_delete_student);
 
-           /* itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION && listener != null) {
-                      //  listener.onItemClick(pos);
-                    }
-                }
-            });*/
         }
         public void bindData(Student student) {tv_students.setText("Aluno: " + student.getId() + " - " + student.getName());
         }

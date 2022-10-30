@@ -16,6 +16,7 @@
         android:textStyle="bold"
         android:background="@color/green_light"
         android:gravity="center"
+        android:textAllCaps="true"
         android:textSize="20sp"
         android:layout_marginTop="15dp" />
 
@@ -27,11 +28,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Ano da turma: "/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ex: 11"
+        android:inputType="number"
         android:id="@+id/et_classYear"/>
     </LinearLayout>
     <LinearLayout
@@ -41,11 +44,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Designação: "/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ex: C"
+        android:inputType="text"
         android:id="@+id/et_classDesignation"/>
     </LinearLayout>
     <Button

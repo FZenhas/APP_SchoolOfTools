@@ -14,8 +14,9 @@
         android:text="Detalhes do Aluno"
         android:textAllCaps="true"
         android:layout_marginTop="20sp"
+        android:background="@color/green_light"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:textStyle="bold" />
 
     <TextView
@@ -27,7 +28,7 @@
         android:layout_marginStart="70dp"
         android:textColor="@color/black"
         android:hint="nome"
-        android:textSize="24dp" />
+        android:textSize="22dp" />
 
 
     <LinearLayout
