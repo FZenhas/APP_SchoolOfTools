@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button bt_class, bt_about;
+    Button bt_class;
     TextView tv_dateTime;
 
 
@@ -28,21 +28,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bt_class = findViewById(R.id.bt_class);
-        bt_about = findViewById(R.id.bt_about);
         tv_dateTime = findViewById(R.id.tv_dateTime);
 
         bt_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, ClassesActivity.class);
-                startActivity(i);
-            }
-        });
-
-        bt_about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(i);
             }
         });
